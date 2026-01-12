@@ -34,7 +34,7 @@
     </script>
 </head>
 
-<body class="bg-gray-900 text-white h-screen flex items-center justify-center p-2 sm:p-4 overflow-hidden relative">
+<body class="bg-gray-900 text-white h-[100dvh] flex items-center justify-center p-2 sm:p-4 overflow-hidden relative">
 
     <!-- Ambient Background Effects -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
@@ -50,21 +50,22 @@
     </div>
 
     <!-- Main Container -->
-    <div class="w-full max-w-5xl bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 shadow-2xl rounded-3xl p-4 sm:p-6 relative overflow-hidden transition-all duration-500 h-[85vh] flex flex-col"
+    <div class="w-full max-w-5xl bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 shadow-2xl rounded-3xl p-4 sm:p-6 relative overflow-hidden transition-all duration-500 h-[90dvh] sm:h-[85vh] flex flex-col"
         id="main-container">
 
         <!-- Decoration -->
         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500"></div>
 
         <!-- View 1: Setup -->
-        <div id="setup-view" class="w-full max-w-md mx-auto fade-in flex-1 flex flex-col justify-center">
+        <div id="setup-view"
+            class="w-full max-w-md mx-auto fade-in flex-1 flex flex-col justify-center overflow-y-auto custom-scrollbar">
             <h1
-                class="text-3xl sm:text-4xl font-bold text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                class="text-3xl sm:text-4xl font-bold text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 pt-10 sm:pt-0">
                 Attendance Taker</h1>
             <p class="text-gray-400 text-center mb-8 sm:mb-10 text-sm sm:text-base">Enter session details to begin</p>
 
-            <form id="setup-form" class="space-y-4 sm:space-y-6">
-                <!-- Course & Year Row -->
+            <form id="setup-form" class="space-y-4 sm:space-y-6 pb-4">
+                <!-- ... fields ... -->
                 <div class="flex gap-4">
                     <div class="w-2/3 group">
                         <label
@@ -168,7 +169,7 @@
         </div>
 
         <!-- View 2: Attendance Grid -->
-        <div id="attendance-view" class="hidden flex-col h-full fade-in flex-1">
+        <div id="attendance-view" class="hidden flex flex-col h-full fade-in flex-1">
             <!-- Header -->
             <div class="flex justify-between items-start mb-6">
                 <div>
@@ -187,7 +188,8 @@
             </div>
 
             <!-- Scrollable Area -->
-            <div class="flex-1 overflow-y-auto pr-1 custom-scrollbar">
+            <div class="flex-1 overflow-y-auto pr-1 custom-scrollbar min-h-0 overscroll-contain relative z-0 w-full"
+                style="-webkit-overflow-scrolling: touch;">
                 <div id="students-grid"
                     class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 pb-24">
                     <!-- Cards will be injected here -->

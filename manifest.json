@@ -1,6 +1,6 @@
 {
     "name": "Attendance Taker",
-    "short_name": "Attendance",
+    "short_name": "Attendance Taker",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#111827",
